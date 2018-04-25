@@ -46,28 +46,38 @@
                         <div class="cont_form_login">
                             <a href="#" onclick="ocultar_login_sign_up()" ><i class="fas fa-angle-left"></i></a>
                             <h2>LOGIN</h2>
-                            <form>
+                            <form action="Login" method="POST">
                                 <input type="text" placeholder="User" name="user" />
                                 <input type="password" placeholder="Password" name="pass" />
-                                <input type="submit" class="btn_login" onclick="cambiar_login()">LOGIN</button>
+                                <input type="submit" class="btn_login" value="LOGIN" style="color: white">
                             </form>
                         </div>
                         <div class="cont_form_sign_up">
                             <a href="#" onclick="ocultar_login_sign_up()"><i class="fas fa-angle-left"></i></a>
                             <h2>SIGN UP</h2>
-                            <form action="Register" method="post">
-                                <input type="text" placeholder="User" name="user" />
-                                <input type="password" placeholder="Password" name="pass" />
-                                <input type="text" placeholder="Nombre" name="nombre" />
-                                <input type="text" placeholder="DNI" name="dni" />
-                                <input type="text" placeholder="Telefono" name="telefono" />
-                                <input type="submit" class="btn_sign_up" value="SIGN UP"/>
+                            <form action="Register" method="POST">
+                                <input type="text" placeholder="User" name="user" maxlength="15" required/>
+                                <input type="password" placeholder="Password" name="pass" maxlength="50" required/>
+                                <input type="text" placeholder="Nombre" name="nombre" maxlength="50" required/>
+                                <input type="text" placeholder="DNI" name="dni" maxlength="9" required/>
+                                <input type="text" placeholder="Telefono" name="telefono" maxlength="9" required/>
+                                <input type="submit" class="btn_sign_up" value="SIGN UP" style="color: white"/>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <%
+            String status = (String) request.getAttribute("status");
+            if (status != null) {
+        %>
+        <script type="text/javascript">
+            alert("<%= status%>");
+        </script>
+        <%
+            }
+        %>
         <script src="js/index.js" type="text/javascript"></script>
     </body>
 </html>

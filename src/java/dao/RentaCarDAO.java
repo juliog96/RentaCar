@@ -24,7 +24,6 @@ public class RentaCarDAO {
     private Connection conexion;
 
     // Función que da de alta un usuario 
-
     public void insertarUsuario(Usuario usu) throws SQLException, MiExcepcion {
         conectar();
         if (existeUsuario(usu)) {
@@ -47,10 +46,39 @@ public class RentaCarDAO {
         desconectar();
     }
 
+    public boolean login(Usuario usu) throws SQLException, MiExcepcion {
+        conectar();
+        boolean tipo = false;
+        String bdPass;
+        String tipoUser;
+        String user = "select * from usuario where user='" + usu.getUsername() + "'";
+        Statement st = conexion.createStatement();
+        ResultSet rs = st.executeQuery(user);
+        if (rs.next()) {
+            bdPass = rs.getString("password");
+            tipoUser = rs.getString("tipo");
+            if (!bdPass.equals(usu.getPassword())) {
+                throw new MiExcepcion("ERROR: Contraseña mal introducida");
+            } else {
+                if (tipoUser.equals("User")) {
+                    tipo = true;
+                }
+            }
+        } else {
+            throw new MiExcepcion("ERROR: Usuario no existe");
+        }
+        rs.close();
+        st.close();
+        desconectar();
+        return tipo;
+    }
+//     ********************* Extras ****************************
+//     !!Hay que abrir conexion antes de llamar a este metodo¡¡
+
     private boolean existeUsuario(Usuario usu) throws SQLException {
 //        conectar();
         String select = "select * from usuario where dni='" + usu.getDni() + "'";
-        String select2 = "select * from usuario where user='" + usu.getDni() + "'";
+        String select2 = "select * from usuario where user='" + usu.getUsername() + "'";
         Statement st = conexion.createStatement();
         boolean verdad = false;
         boolean existe = false;
@@ -63,7 +91,7 @@ public class RentaCarDAO {
         if (rs2.next()) {
             existe2 = true;
         }
-        if (existe == true && existe2 == true) {
+        if (existe == true || existe2 == true) {
             verdad = true;
         }
         rs.close();
@@ -71,10 +99,6 @@ public class RentaCarDAO {
         st.close();
 //        desconectar();
         return verdad;
-    }
-    
-    private void insertarCoche(Coche c){
-    
     }
 
 //     ********************* Conectar / Desconectar ****************************

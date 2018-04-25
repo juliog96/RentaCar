@@ -41,11 +41,11 @@ public class Register extends HttpServlet {
         Usuario u = new Usuario(dni, user, pass, name, null, null, tel, "User");
         try {
             rentacarDAO.insertarUsuario(u);
-            request.setAttribute("status", "Empleado / Administrador " + user + " dado de alta - Ahora ya puede iniciar sesion");
+            request.setAttribute("status", "Empleado / Administrador - " + user + " dado de alta - Ahora ya puede iniciar sesion");
         } catch (MiExcepcion | SQLException ex) {
             request.setAttribute("status", ex.getMessage());
         }
-        request.getRequestDispatcher("/UserPage.jsp").forward(request, response);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

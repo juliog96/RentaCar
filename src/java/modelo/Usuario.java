@@ -21,6 +21,11 @@ public class Usuario {
     private String telefono;
     private String tipo;
 
+    public Usuario(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+    
     public Usuario(String dni, String username, String password, String nombre, String apellido, String cp, String telefono, String tipo) {
         this.dni = dni;
         this.username = username;
@@ -31,7 +36,7 @@ public class Usuario {
         this.telefono = telefono;
         this.tipo = tipo;
     }
-
+    
     public int getId() {
         return id;
     }
