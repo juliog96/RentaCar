@@ -16,6 +16,9 @@ public class Tienda {
     private int empleados;
     private Localizacion localizacion;
 
+    public Tienda() {
+    }
+
     public Tienda(int id, String nombre, int empleados, Localizacion localizacion) {
         this.id = id;
         this.nombre = nombre;

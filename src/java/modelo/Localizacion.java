@@ -13,10 +13,14 @@ public class Localizacion {
 
     private int id;
     private String direccion;
+    private Ciudad ciudad;
 
-    public Localizacion(int id, String direccion) {
-        this.id = id;
+    public Localizacion() {
+    }
+
+    public Localizacion(String direccion, Ciudad ciudad) {
         this.direccion = direccion;
+        this.ciudad = ciudad;
     }
 
     public int getId() {
@@ -35,11 +39,12 @@ public class Localizacion {
         this.direccion = direccion;
     }
 
-    @Override
-    public String toString() {
-        return "Localizacion{" + "id=" + id + ", direccion=" + direccion + '}';
+    public Ciudad getCiudad() {
+        return ciudad;
     }
-    
-    
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
 
 }

@@ -11,7 +11,6 @@ package modelo;
  */
 public class Usuario {
 
-    private int id;
     private String dni;
     private String username;
     private String password;
@@ -21,11 +20,14 @@ public class Usuario {
     private String telefono;
     private String tipo;
 
+    public Usuario() {
+    }
+
     public Usuario(String username, String password) {
         this.username = username;
         this.password = password;
     }
-    
+
     public Usuario(String dni, String username, String password, String nombre, String apellido, String cp, String telefono, String tipo) {
         this.dni = dni;
         this.username = username;
@@ -35,14 +37,6 @@ public class Usuario {
         this.cp = cp;
         this.telefono = telefono;
         this.tipo = tipo;
-    }
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDni() {
@@ -107,11 +101,6 @@ public class Usuario {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    @Override
-    public String toString() {
-        return "Usuario{" + "id=" + id + ", dni=" + dni + ", username=" + username + ", password=" + password + ", nombre=" + nombre + ", apellido=" + apellido + ", cp=" + cp + ", telefono=" + telefono + ", tipo=" + tipo + '}';
     }
 
 }

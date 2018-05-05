@@ -49,6 +49,14 @@ function ocultar_login_sign_up() {
 
 }
 
+$('.product-options tr').click(function () {
+    $(this).children('td').children('input').prop('checked', true);
+
+    $('.product-options tr').removeClass('selected');
+    $(this).toggleClass('selected');
+
+});
+
 
 
 

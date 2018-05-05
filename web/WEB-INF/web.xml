@@ -8,6 +8,30 @@
         <servlet-name>Register</servlet-name>
         <servlet-class>servlets.Register</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CerrarSesion</servlet-name>
+        <servlet-class>servlets.CerrarSesion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TiendasByCiudad</servlet-name>
+        <servlet-class>servlets.TiendasByCiudad</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CochesDisponibles</servlet-name>
+        <servlet-class>servlets.CochesDisponibles</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Altas</servlet-name>
+        <servlet-class>servlets.Altas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Eliminaciones</servlet-name>
+        <servlet-class>servlets.Eliminaciones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Modificaciones</servlet-name>
+        <servlet-class>servlets.Modificaciones</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -15,6 +39,30 @@
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
         <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CerrarSesion</servlet-name>
+        <url-pattern>/CerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TiendasByCiudad</servlet-name>
+        <url-pattern>/TiendasByCiudad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CochesDisponibles</servlet-name>
+        <url-pattern>/CochesDisponibles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Altas</servlet-name>
+        <url-pattern>/Altas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Eliminaciones</servlet-name>
+        <url-pattern>/Eliminaciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Modificaciones</servlet-name>
+        <url-pattern>/Modificaciones</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

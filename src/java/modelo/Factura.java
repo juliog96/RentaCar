@@ -14,17 +14,33 @@ import java.util.Date;
 public class Factura {
 
     private int id;
-    private Date fecha;
-    private Date entrega;
-    private Date recogida;
+    private String fecha;
+    private String entrega;
+    private String recogida;
+    private int precio;
     private Coche coche;
     private Usuario usuario;
     private Tienda tienda;
 
-    public Factura(Date fecha, Date entrega, Date recogida, Coche coche, Usuario usuario, Tienda tienda) {
+    public Factura() {
+    }
+
+    public Factura(String fecha, String entrega, String recogida, int precio, Coche coche, Usuario usuario, Tienda tienda) {
         this.fecha = fecha;
         this.entrega = entrega;
         this.recogida = recogida;
+        this.precio = precio;
+        this.coche = coche;
+        this.usuario = usuario;
+        this.tienda = tienda;
+    }
+
+    public Factura(int id, String fecha, String entrega, String recogida, int precio, Coche coche, Usuario usuario, Tienda tienda) {
+        this.id = id;
+        this.fecha = fecha;
+        this.entrega = entrega;
+        this.recogida = recogida;
+        this.precio = precio;
         this.coche = coche;
         this.usuario = usuario;
         this.tienda = tienda;
@@ -38,28 +54,36 @@ public class Factura {
         this.id = id;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public Date getEntrega() {
+    public String getEntrega() {
         return entrega;
     }
 
-    public void setEntrega(Date entrega) {
+    public void setEntrega(String entrega) {
         this.entrega = entrega;
     }
 
-    public Date getRecogida() {
+    public String getRecogida() {
         return recogida;
     }
 
-    public void setRecogida(Date recogida) {
+    public void setRecogida(String recogida) {
         this.recogida = recogida;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     public Coche getCoche() {
@@ -84,11 +108,6 @@ public class Factura {
 
     public void setTienda(Tienda tienda) {
         this.tienda = tienda;
-    }
-
-    @Override
-    public String toString() {
-        return "Factura{" + "id=" + id + ", fecha=" + fecha + ", entrega=" + entrega + ", recogida=" + recogida + ", coche=" + coche + ", usuario=" + usuario + ", tienda=" + tienda + '}';
     }
 
 }

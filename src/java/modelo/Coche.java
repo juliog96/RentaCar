@@ -19,6 +19,9 @@ public class Coche {
     private int precio;
     private Tienda tienda;
 
+    public Coche() {
+    }
+
     public Coche(String matricula, String modelo, Integer plazas, String combustible, int precio, Tienda tienda) {
         this.matricula = matricula;
         this.modelo = modelo;

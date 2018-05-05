@@ -5,23 +5,18 @@
  */
 package servlets;
 
-import Exception.MiExcepcion;
-import dao.RentaCarDAO;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Ciudad;
-import modelo.Usuario;
 
 /**
  *
  * @author julio
  */
-public class Login extends HttpServlet {
+public class Altas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,27 +29,32 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RentaCarDAO rentacarDAO = new RentaCarDAO();
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
-        Usuario u = new Usuario(user, pass);
-        try {
-            boolean tipo = rentacarDAO.login(u);
-            request.getSession(true).setAttribute("user", user);
-            if (!tipo) {
-                request.getRequestDispatcher("/adminPage.jsp").forward(request, response);
-            } else {
-                List<Ciudad> ciudades = rentacarDAO.selectAllCiudades();
-                request.setAttribute("ciudades", ciudades);
-                request.getRequestDispatcher("/userPage.jsp").forward(request, response);
-            }
-        } catch (MiExcepcion | SQLException ex) {
-            request.setAttribute("status", ex.getMessage());
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+        //Estos if hacen posible que en el mismo jsp se puedan hacer todos los inserts.
+        if ("ALTA CIUDAD".equals(request.getParameter("ciudad"))) {
+            String ciudad = "true";
+            request.setAttribute("selectCiudad", ciudad);
+            request.getRequestDispatcher("/altas.jsp").forward(request, response);
         }
+        if ("ALTA COCHE".equals(request.getParameter("coche"))) {
+            String coche = "true";
+            request.setAttribute("selectCoche", coche);
+            request.getRequestDispatcher("/altas.jsp").forward(request, response);
+        }
+        if ("ALTA LOCALIZACION".equals(request.getParameter("localizaciones"))) {
+            String localizacion = "true";
+            request.setAttribute("selectLocalizacion", localizacion);
+            request.getRequestDispatcher("/altas.jsp").forward(request, response);
+
+        }
+        if ("ALTA TIENDA".equals(request.getParameter("tienda"))) {
+            String tienda = "true";
+            request.setAttribute("selectTienda", tienda);
+            request.getRequestDispatcher("/altas.jsp").forward(request, response);
+        }
+
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
