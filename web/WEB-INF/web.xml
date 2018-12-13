@@ -32,6 +32,14 @@
         <servlet-name>Modificaciones</servlet-name>
         <servlet-class>servlets.Modificaciones</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EntrarComoUser</servlet-name>
+        <servlet-class>servlets.EntrarComoUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Rankings</servlet-name>
+        <servlet-class>servlets.Rankings</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>Modificaciones</servlet-name>
         <url-pattern>/Modificaciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EntrarComoUser</servlet-name>
+        <url-pattern>/EntrarComoUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Rankings</servlet-name>
+        <url-pattern>/Rankings</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

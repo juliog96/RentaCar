@@ -24,8 +24,8 @@ td {
 }
 
 th {
-    color: @baseheadingfontcolor;
-    .font-size(16);
+    color: red;
+    font-size: 16px;
 }
 
 tr.selected {

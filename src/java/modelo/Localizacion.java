@@ -18,6 +18,10 @@ public class Localizacion {
     public Localizacion() {
     }
 
+    public Localizacion(int id) {
+        this.id = id;
+    }
+
     public Localizacion(String direccion, Ciudad ciudad) {
         this.direccion = direccion;
         this.ciudad = ciudad;

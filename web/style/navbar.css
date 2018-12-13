@@ -126,7 +126,7 @@ a.sitename, a:visited.sitename {
     }
 }
 /* WEB FONT */
-@import url(https://fonts.googleapis.com/css?family=Signika:600|Varela+Round);
+@import url('https://fonts.googleapis.com/css?family=Signika:600|Varela+Round');
 
 /* RESET */
 * {

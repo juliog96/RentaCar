@@ -72,7 +72,7 @@ public class CochesDisponibles extends HttpServlet {
                 request.getRequestDispatcher("/userPage.jsp").forward(request, response);
             } catch (SQLException ex) {
                 request.setAttribute("status", ex.getMessage());
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                request.getRequestDispatcher("/userPage.jsp").forward(request, response);
             }
         }
         //Si no entra en el if de consultar, insertamos la factura ya que tendremos todos los datos.

@@ -45,8 +45,16 @@
                 <!-- Example responsive navigation menu  -->
                 <a class="show" href="#menu">Menu</a><a class="hide" href="#hidemenu">Menu</a>
                 <ul class="menu-items">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Perfil</a></li>
+                    <li>
+                        <form action="EntrarComoUser" method="POST">
+                            <input type="submit" value="Home" style="cursor: pointer; font-size: 18px">
+                        </form>
+                    </li>
+                    <li>
+                        <form action="Modificaciones" method="POST">
+                            <input type="submit" name="Perfil" value="Perfil" style="cursor: pointer; font-size: 18px">
+                        </form>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -59,13 +67,13 @@
                 if (ciudades != null) {
                     if (ciudades.size() < 1) {
             %>
+            <p style="font-family: 'Ubuntu', cursive; color: #494949b3">Ciudad: 
             <div class="wrap" style="margin-left: 8%">
                 <div class="custom">
-                    <p style="font-family: 'Ubuntu', cursive; color: #494949b3">Ciudad: 
-                        <select name="user" required>
-                            <option disabled>--ELIGE--</option>
-                            <option>Ninguna ciudad disponible</option>
-                        </select>
+                    <select name="user" required>
+                        <option disabled>--ELIGE--</option>
+                        <option>Ninguna ciudad disponible</option>
+                    </select>
                     </p>
                 </div>
             </div>
@@ -99,13 +107,13 @@
                 if (tiendas != null) {
                     if (tiendas.size() < 1) {
             %>
+            <p style="font-family: 'Ubuntu', cursive; color: #494949b3">Tienda 
             <div class="wrap" style="margin-left: 8%; margin-top: 5%">
                 <div class="custom">
-                    <p style="font-family: 'Ubuntu', cursive; color: #494949b3">Tienda 
-                        <select name="tienda" required>
-                            <option disabled>--ELIGE--</option>
-                            <option>Ninguna tienda disponible</option>
-                        </select>
+                    <select name="tienda" required>
+                        <option disabled>--ELIGE--</option>
+                        <option>Ninguna tienda disponible</option>
+                    </select>
                     </p>
                 </div>
             </div>

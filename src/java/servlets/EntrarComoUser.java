@@ -5,21 +5,24 @@
  */
 package servlets;
 
-import Exception.MiExcepcion;
 import dao.RentaCarDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Usuario;
+import modelo.Ciudad;
 
 /**
  *
  * @author julio
  */
-public class Register extends HttpServlet {
+public class EntrarComoUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,19 +36,14 @@ public class Register extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RentaCarDAO rentacarDAO = new RentaCarDAO();
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
-        String name = request.getParameter("nombre");
-        String dni = request.getParameter("dni");
-        String tel = request.getParameter("telefono");
-        Usuario u = new Usuario(dni, user, pass, name, null, null, tel, "User");
+        response.setContentType("text/html;charset=UTF-8");
         try {
-            rentacarDAO.insertarUsuario(u);
-            request.setAttribute("status", "Usuario / Administrador - " + user + " dado de alta - Ahora ya puede iniciar sesion");
-        } catch (MiExcepcion | SQLException ex) {
-            request.setAttribute("status", ex.getMessage());
+            List<Ciudad> ciudades = rentacarDAO.selectAllCiudades();
+            request.setAttribute("ciudades", ciudades);
+            request.getRequestDispatcher("/userPage.jsp").forward(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(EntrarComoUser.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

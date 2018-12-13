@@ -14,7 +14,7 @@ public class Coche {
     private int id;
     private String matricula;
     private String modelo;
-    private Integer plazas;
+    private String plazas;
     private String combustible;
     private int precio;
     private Tienda tienda;
@@ -22,7 +22,8 @@ public class Coche {
     public Coche() {
     }
 
-    public Coche(String matricula, String modelo, Integer plazas, String combustible, int precio, Tienda tienda) {
+    public Coche(int id, String matricula, String modelo, String plazas, String combustible, int precio, Tienda tienda) {
+        this.id = id;
         this.matricula = matricula;
         this.modelo = modelo;
         this.plazas = plazas;
@@ -55,11 +56,11 @@ public class Coche {
         this.modelo = modelo;
     }
 
-    public Integer getPlazas() {
+    public String getPlazas() {
         return plazas;
     }
 
-    public void setPlazas(Integer plazas) {
+    public void setPlazas(String plazas) {
         this.plazas = plazas;
     }
 

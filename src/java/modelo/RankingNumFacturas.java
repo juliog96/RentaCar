@@ -9,20 +9,13 @@ package modelo;
  *
  * @author julio
  */
-public class Ciudad {
+public class RankingNumFacturas {
 
     private int id;
-    private String nombre;
+    private String tienda;
+    private int facturas;
 
-    public Ciudad() {
-    }
-
-    public Ciudad(int id) {
-        this.id = id;
-    }
-
-    public Ciudad(String nombre) {
-        this.nombre = nombre;
+    public RankingNumFacturas() {
     }
 
     public int getId() {
@@ -33,12 +26,20 @@ public class Ciudad {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTienda() {
+        return tienda;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTienda(String tienda) {
+        this.tienda = tienda;
+    }
+
+    public int getFacturas() {
+        return facturas;
+    }
+
+    public void setFacturas(int facturas) {
+        this.facturas = facturas;
     }
 
 }
